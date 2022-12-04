@@ -1,11 +1,19 @@
 
-import React from "react";
+import React, { useContext } from "react";
 import classes from './Overlay.module.css'
-const Overlay = (props) => {
+
+import Context from "../Context";
+const Overlay = () => {
+
+    const ctx = useContext(Context);
+
+    const hideHandler = () => {
+        ctx.setShowModal(false);
+    }
 
     return (
         
-        <div className={classes.overlay} onClick={props.onHide}></div>
+        <div className={classes.overlay} onClick={hideHandler}></div>
     )
 
 }

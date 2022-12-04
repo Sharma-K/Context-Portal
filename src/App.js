@@ -4,6 +4,7 @@ import Modals from "./components/Modals";
 import Overlay from "./components/Overlay";
 import Container from "./components/Container";
 import Overcon from "./components/Overcon";
+import Context from "./Context";
 
 function App() {
 
@@ -16,24 +17,21 @@ function App() {
     setShowModal(true);
   }
   const hideModalHandler = () => {
-    console.log('touched');
+   
     setShowModal(false);
   }
-  const showConHandler = () => {
-    setShowCon(true);
-  }
-  const hideConHandler = () => {
-    setShowCon(false);
-  }
+  
 
 
 
   return (
+    <Context.Provider value={{showModal, setShowModal}} >
     <div className="App">
       {showModal && <Overcon onHide={hideModalHandler} /> }
     
       <Navbar show={showModalHandler} />
     </div>
+    </Context.Provider>
   );
 }
 

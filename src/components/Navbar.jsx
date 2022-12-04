@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import classes from './Navbar.module.css'
+import Context from "../Context";
 
 const Navbar = (props) => {
 
+   
  
     return (
     <nav className={classes.nav}>
