@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Navbar from "./components/Navbar";
+import React from "react";
+import Modals from "./components/Modals";
+import Overlay from "./components/Overlay";
+import Container from "./components/Container";
 function App() {
+
+  const [showModal, setShowModal] = React.useState(false);
+  const [showcon, setShowCon] = React.useState(false);
+
+  const showModalHandler = () =>{
+  
+    setShowModal(true);
+  }
+  const hideModalHandler = () => {
+    setShowModal(false);
+  }
+  const showConHandler = () => {
+    setShowCon(true);
+  }
+  const hideConHandler = () => {
+    setShowCon(false);
+  }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {showModal && <Overlay onHide={hideModalHandler}/> }
+      <Navbar show={showModalHandler} />
+     {showcon && < Container showCon={showConHandler} />}
     </div>
   );
 }
